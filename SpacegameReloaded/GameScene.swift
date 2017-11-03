@@ -33,6 +33,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let motionManger = CMMotionManager()
     var xAcceleration:CGFloat = 0
+    var startButton = SKLabelNode()
+    var overLabel = SKLabelNode()
     
     override func didMove(to view: SKView) {
         
@@ -183,7 +185,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         label.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         self.addChild(label)
+        overLabel = label
+//        NotificationCenter.default.post(Notification.init(name: Notification.Name.init("aaa")))
 
+        gameTimer.invalidate()
+        self.removeChildren(in: [player])
+        showStart()
+    }
+    
+    func showStart(){
+        let start = SKLabelNode.init(text: "Start Game")
+        start.name = "btn"
+        start.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 90)
+        self.addChild(start)
+        startButton = start
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        let positionInScene = touch!.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        
+        if let name = touchedNode.name {
+            if name == "btn" {
+                reStart()
+            }
+        }
+    }
+    
+    func reStart(){
+        self.removeChildren(in: [startButton,overLabel])
+        self.addChild(player)
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
     }
     
     

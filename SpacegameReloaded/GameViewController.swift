@@ -65,6 +65,9 @@ class GameViewController: UIViewController {
         task.resume()
     }
 
+    @IBAction func startTap(_ sender: Any) {
+        gameBegin()
+    }
     func gameBegin() {
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -82,6 +85,8 @@ class GameViewController: UIViewController {
             view.showsNodeCount = true
         }
     }
+    
+
     override var shouldAutorotate: Bool {
         return true
     }
