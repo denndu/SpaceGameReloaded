@@ -28,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let alienCategory:UInt32 = 0x1 << 1
     let photonTorpedoCategory:UInt32 = 0x1 << 0
+    let shuttleCaategory:UInt32 = 0x1 << 2
     
     
     let motionManger = CMMotionManager()
@@ -45,6 +46,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player = SKSpriteNode(imageNamed: "shuttle")
         
         player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
+        
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody?.isDynamic = true
+        
+        player.physicsBody?.categoryBitMask = shuttleCaategory
+        player.physicsBody?.contactTestBitMask = alienCategory
+        player.physicsBody?.collisionBitMask = 0
         
         self.addChild(player)
         
@@ -164,6 +172,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            torpedoDidCollideWithAlien(torpedoNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
         }
         
+        if (firstBody.categoryBitMask & alienCategory) != 0 && (secondBody.categoryBitMask & shuttleCaategory) != 0 {
+            gameOver()
+        }
+        
+    }
+    
+    func gameOver(){
+        let label = SKLabelNode.init(text: "game over")
+        
+        label.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        self.addChild(label)
+
     }
     
     
