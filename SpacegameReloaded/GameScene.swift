@@ -9,13 +9,18 @@
 import SpriteKit
 import GameplayKit
 import CoreMotion
+import MessageUI
+//protocol gameSceneDelegate {
+//    func gameStart()
+//    func gameStop()
+//}
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
     var starfield:SKEmitterNode!
     var player:SKSpriteNode!
     let carSize = CGSize(width: 80, height: 160)
     var scoreLabel:SKLabelNode!
+    var mailV :  MFMessageComposeViewController!
     var score:Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
@@ -185,9 +190,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver(){
+        
+//        let share  = SKLabelNode.init(text:"share score")
+//        share.fontSize = 20
+//        share.name = "share"
+//        share.fontName = "AmericanTypewriter-Bold"
+//        share.position = CGPoint(x: self.frame.midX, y: self.frame.minY + 150)
+//        self.addChild(share)
+//        mailV = MFMessageComposeViewController()
+//        mailV.body = "I just got \(score) in Gravity racing"
+//        mailV.setMessageBody("I just got \(score)", isHTML: false)
+        
         score = 0
         let label = SKLabelNode.init(text: "game over")
         label.fontSize = 50
+        label.fontName = "AmericanTypewriter-Bold"
         label.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         self.addChild(label)
         overLabel = label
@@ -201,11 +218,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func showStart(){
         let start = SKLabelNode.init(text: "Try again")
         start.name = "btn"
-        start.fontSize = 50
-        start.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 90)
+        start.fontName = "AmericanTypewriter-Bold"
+        start.fontSize = 30
+        start.color = UIColor.lightGray
+        start.position = CGPoint(x: self.frame.midX, y: self.frame.minY + 100)
+        
 
         self.addChild(start)
         startButton = start
+        
+        
+        
+    }
+    
+    func share(){
+//       UIApplication.shared.keyWindow?.rootViewController?.present(mailV, animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -216,12 +243,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let name = touchedNode.name {
             if name == "btn" {
                 reStart()
+            }else if name == "share"{
+                share()
             }
         }
     }
     
     func reStart(){
-        self.removeChildren(in: [startButton,overLabel])
+        self.removeAllChildren()
+        self.addChild(starfield)
+        self.addChild(scoreLabel)
+//        self.removeChildren(in: [startButton,overLabel])
         self.addChild(player)
         self.removeChildren(in: [startButton,overLabel])
         gameTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)

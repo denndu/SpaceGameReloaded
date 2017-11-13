@@ -5,14 +5,14 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="SpacegameReloaded" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Gravity_racing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
@@ -26,87 +26,5 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Web View Controller-->
-        <scene sceneID="FKo-re-aYS">
-            <objects>
-                <viewController storyboardIdentifier="web" id="qbP-IC-bgT" customClass="WebViewController" customModule="SpacegameReloaded" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RsC-bs-Q9i"/>
-                        <viewControllerLayoutGuide type="bottom" id="QWX-Tg-xXb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dDI-Ow-9Nx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyz-AF-duw">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Z8-XG-f7d">
-                                <rect key="frame" x="0.0" y="618" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="VEy-GM-xsH"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Item" image="caret_black" id="hzl-7e-h6g">
-                                        <connections>
-                                            <action selector="backButtonTap:" destination="qbP-IC-bgT" id="Ae9-pl-9qK"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="u3a-3Q-Xbm"/>
-                                    <barButtonItem title="Item" image="caret_black_right" width="86" id="buC-Hq-nS5">
-                                        <connections>
-                                            <action selector="forwardButtonTap:" destination="qbP-IC-bgT" id="Lc7-8b-oH6"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="vwb-G9-JjC"/>
-                                    <barButtonItem title="Item" image="icon_refresh" id="hnG-H8-x5g">
-                                        <connections>
-                                            <action selector="refresh:" destination="qbP-IC-bgT" id="bZN-f6-ugu"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="ldM-Sm-Pad"/>
-                                    <barButtonItem systemItem="bookmarks" id="hDG-Ur-AHY">
-                                        <connections>
-                                            <action selector="clear:" destination="qbP-IC-bgT" id="Fio-ON-h82"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bs4-xY-ICR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="ZSN-Kf-LRW"/>
-                                </constraints>
-                            </progressView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="QWX-Tg-xXb" firstAttribute="top" secondItem="7Z8-XG-f7d" secondAttribute="bottom" constant="5" id="1a2-mW-DgL"/>
-                            <constraint firstItem="Bs4-xY-ICR" firstAttribute="top" secondItem="dDI-Ow-9Nx" secondAttribute="top" id="CrL-LU-1aI"/>
-                            <constraint firstItem="Bs4-xY-ICR" firstAttribute="leading" secondItem="dDI-Ow-9Nx" secondAttribute="leading" id="DtO-Wa-GoR"/>
-                            <constraint firstItem="Xyz-AF-duw" firstAttribute="leading" secondItem="dDI-Ow-9Nx" secondAttribute="leading" id="GAA-re-Btt"/>
-                            <constraint firstAttribute="trailing" secondItem="Xyz-AF-duw" secondAttribute="trailing" id="HF6-AA-1Qf"/>
-                            <constraint firstItem="7Z8-XG-f7d" firstAttribute="leading" secondItem="dDI-Ow-9Nx" secondAttribute="leading" id="JQ9-5d-oUf"/>
-                            <constraint firstAttribute="trailing" secondItem="Bs4-xY-ICR" secondAttribute="trailing" id="P09-FL-Sy1"/>
-                            <constraint firstItem="Xyz-AF-duw" firstAttribute="top" secondItem="RsC-bs-Q9i" secondAttribute="bottom" id="a8S-2l-loc"/>
-                            <constraint firstItem="7Z8-XG-f7d" firstAttribute="top" secondItem="Xyz-AF-duw" secondAttribute="bottom" id="soP-1P-qpI"/>
-                            <constraint firstAttribute="trailing" secondItem="7Z8-XG-f7d" secondAttribute="trailing" id="uZr-nq-DoN"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="myProgressView" destination="Bs4-xY-ICR" id="JXr-aZ-LG6"/>
-                        <outlet property="webView" destination="Xyz-AF-duw" id="B7b-2p-lkd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0UN-fy-ZcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="785" y="327"/>
-        </scene>
     </scenes>
-    <resources>
-        <image name="caret_black" width="9" height="17"/>
-        <image name="caret_black_right" width="10" height="18"/>
-        <image name="icon_refresh" width="18" height="18"/>
-    </resources>
 </document>
