@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Gravity_racing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Gravity_car" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
@@ -26,5 +26,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Y1J-vr-LZO">
+            <objects>
+                <viewController storyboardIdentifier="web" id="v2C-05-VfU" customClass="WebViewController" customModule="Gravity_car" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x3x-yv-jS6"/>
+                        <viewControllerLayoutGuide type="bottom" id="mc2-Z9-M8k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lQJ-Gh-6kh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVQ-wr-yKb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIq-Xm-rCN">
+                                <rect key="frame" x="0.0" y="618" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dLW-w2-HvQ"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" image="caret_black" id="ZIp-lm-JhU">
+                                        <connections>
+                                            <action selector="backButtonTap:" destination="v2C-05-VfU" id="qaA-nl-NAT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="vwy-Yy-DYm"/>
+                                    <barButtonItem title="Item" image="caret_black_right" width="86" id="FDJ-aw-jN7">
+                                        <connections>
+                                            <action selector="forwardButtonTap:" destination="v2C-05-VfU" id="OUX-SM-JGp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="tPn-z9-iM4"/>
+                                    <barButtonItem title="Item" image="icon_refresh" id="Agp-3I-P2m">
+                                        <connections>
+                                            <action selector="refresh:" destination="v2C-05-VfU" id="D5M-be-h4S"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="643-47-fNr"/>
+                                    <barButtonItem systemItem="trash" id="eHr-dO-7tw">
+                                        <connections>
+                                            <action selector="clear:" destination="v2C-05-VfU" id="3MD-B2-sve"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bc8-8I-828">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="HtJ-fi-vl4"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tIq-Xm-rCN" secondAttribute="trailing" id="9We-vz-XUD"/>
+                            <constraint firstItem="IVQ-wr-yKb" firstAttribute="leading" secondItem="lQJ-Gh-6kh" secondAttribute="leading" id="AU9-81-UzS"/>
+                            <constraint firstAttribute="trailing" secondItem="Bc8-8I-828" secondAttribute="trailing" id="Ium-j3-LtS"/>
+                            <constraint firstItem="mc2-Z9-M8k" firstAttribute="top" secondItem="tIq-Xm-rCN" secondAttribute="bottom" constant="5" id="MHW-qv-ghT"/>
+                            <constraint firstItem="tIq-Xm-rCN" firstAttribute="leading" secondItem="lQJ-Gh-6kh" secondAttribute="leading" id="PYk-2c-fey"/>
+                            <constraint firstItem="IVQ-wr-yKb" firstAttribute="top" secondItem="x3x-yv-jS6" secondAttribute="bottom" id="aCW-xs-LyI"/>
+                            <constraint firstAttribute="trailing" secondItem="IVQ-wr-yKb" secondAttribute="trailing" id="fLo-UA-jV7"/>
+                            <constraint firstItem="Bc8-8I-828" firstAttribute="top" secondItem="lQJ-Gh-6kh" secondAttribute="top" id="gG1-ax-ubR"/>
+                            <constraint firstItem="tIq-Xm-rCN" firstAttribute="top" secondItem="IVQ-wr-yKb" secondAttribute="bottom" id="kGH-Cj-l1T"/>
+                            <constraint firstItem="Bc8-8I-828" firstAttribute="leading" secondItem="lQJ-Gh-6kh" secondAttribute="leading" id="oBa-OG-ZWI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myProgressView" destination="Bc8-8I-828" id="3qb-ut-Es8"/>
+                        <outlet property="webView" destination="IVQ-wr-yKb" id="dh0-g9-Uc1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVF-oq-2W1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1300" y="432.23388305847078"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="caret_black" width="9" height="17"/>
+        <image name="caret_black_right" width="10" height="18"/>
+        <image name="icon_refresh" width="18" height="18"/>
+    </resources>
 </document>
