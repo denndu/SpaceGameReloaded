@@ -38,6 +38,7 @@
 		95FF1D031FAA0CBA00646DA1 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FF1CDB1FAA09B900646DA1 /* AVOSCloud.framework */; };
 		95FF1D041FAA0CC200646DA1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FF1D011FAA0C9B00646DA1 /* libsqlite3.tbd */; };
 		95FF1D071FAA0D4400646DA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95FF1D091FAA0D4400646DA1 /* InfoPlist.strings */; };
+		F553880D1FC4148300BAC38F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55387FC1FC4148300BAC38F /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		95FF1D011FAA0C9B00646DA1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		95FF1D021FAA0CAB00646DA1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		95FF1D0A1FAA0D5000646DA1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F55387FC1FC4148300BAC38F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				86CEE2281D9FC6AB0096FC63 /* Explosion.sks */,
 				86CEE2291D9FC6AB0096FC63 /* Starfield.sks */,
 				86CEE2251D9FC6770096FC63 /* spark.png */,
+				F55387FC1FC4148300BAC38F /* Reachability.swift */,
 				86CEE20E1D9FC6210096FC63 /* GameScene.swift */,
 				86CEE2101D9FC6210096FC63 /* GameViewController.swift */,
 				9504AEBB1FBE81AD00BC2E61 /* WebViewController.swift */,
@@ -535,6 +538,7 @@
 				86CEE20F1D9FC6210096FC63 /* GameScene.swift in Sources */,
 				86CEE2111D9FC6210096FC63 /* GameViewController.swift in Sources */,
 				86CEE2091D9FC6210096FC63 /* AppDelegate.swift in Sources */,
+				F553880D1FC4148300BAC38F /* Reachability.swift in Sources */,
 				9504AEBC1FBE81AD00BC2E61 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

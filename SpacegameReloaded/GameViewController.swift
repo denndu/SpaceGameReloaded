@@ -12,15 +12,28 @@ import GameplayKit
 import UserNotifications
 // 2477163059@protonmail.com
 class GameViewController: UIViewController {
+    
+    let reach = Reachability()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reachChange), name: .reachabilityChanged, object: nil)
+        do{
+            try reach?.startNotifier()
+        }catch{
+            //
+        }
         
-       fetchVersion()
-//        self.gameBegin()
+    }
+    
+    func reachChange() {
+        if  reach!.connection != .none{
+                fetchVersion()
+        }
     }
     
     func fetchVersion(){
+        reach?.stopNotifier()
         var req = URLRequest.init(url: URL.init(string: "https://leancloud.cn:443/1.1/classes/versionNumber/59f97bcaee920a0045860797")!)
         req.setValue("3z7mLhntbzVjAwckUHSvbYtU-gzGzoHsz", forHTTPHeaderField: "X-LC-Id")
         req.setValue("hmJRJsfE8HoWtSi2vu7FKHr7", forHTTPHeaderField: "X-LC-Key")
